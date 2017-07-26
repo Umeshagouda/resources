@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue js</title>
+  <style>
+    .active{
+      color: green;
+    }
+    #app {
+        max-width: 400px;
+        margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <img class="myimg" src="images/img_fjords.jpg" alt="" style="width:100%;">
+    <img class="myimg" src="images/img_forest.jpg" alt="" style="width:100%;">
+    <img class="myimg" src="images/img_lights.jpg" alt="" style="width:100%;">
+
+    <button class="next" onclick="plusdiv(1)">Next</button>
+    <button class="prev" onclick="plusdiv(-1)">Prev</button>
+  </div>
+  
+  <script>
+    var slideIndex = 1;
+    showDivs (slideIndex);
+
+    function plusdiv(n){
+      showDivs(slideIndex += n);
+      
+    }
+    function showDivs(n){
+      var i;
+      var x = document.getElementsByClassName('myimg');
+      if (n > x.length){
+          slideIndex = 1        
+      }
+      if (n < 1){slideIndex = x.length}
+      
+      for(i=0; i < x.length; i++){
+        x[i].style.display = "none";
+      }
+      x[slideIndex-1].style.display = "block";
+    }
+  </script>
+  
+</body>
+</html>
